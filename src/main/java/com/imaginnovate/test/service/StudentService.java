@@ -75,12 +75,16 @@ public class StudentService {
 	private void populateResults(Student student, StudentBean studentBean) {
 		Double total = Double.sum(studentBean.getMarks1(), Double.sum(studentBean.getMarks2(), studentBean.getMarks3()));
 		student.setTotal(total);
+		studentBean.setTotal(total);
 		Double average = total/3;
 		student.setAverage(average);
+		studentBean.setAverage(average);
 		if(studentBean.getMarks1() < 35 || studentBean.getMarks2() < 35 || studentBean.getMarks3() < 35) {
 			student.setResult("Fail");
+			studentBean.setResult("Fail");
 		} else {
 			student.setResult("Pass");
+			studentBean.setResult("Pass");
 		}
 	}
 
